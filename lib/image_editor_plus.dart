@@ -563,7 +563,7 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                 resetTransformation();
                 setState(() {});
 
-                var loadingScreen = showLoadingScreen(context);
+                // var loadingScreen = showLoadingScreen(context);
 
                 if (widget.outputFormat == o.OutputFormat.json) {
                   var json = layers.map((e) => e.toJson()).toList();
@@ -578,14 +578,14 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                   //   });
                   // }
 
-                  loadingScreen.hide();
+                  // loadingScreen.hide();
 
                   if (mounted) Navigator.pop(context, json);
                 } else {
                   var editedImageBytes =
                       await getMergedImage(widget.outputFormat);
 
-                  loadingScreen.hide();
+                  // loadingScreen.hide();
 
                   if (mounted) Navigator.pop(context, editedImageBytes);
                 }
@@ -844,9 +844,9 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                       text: i18n('Crop'),
                       onTap: () async {
                         resetTransformation();
-                        var loadingScreen = showLoadingScreen(context);
+                        //var loadingScreen = showLoadingScreen(context);
                         var mergedImage = await getMergedImage();
-                        loadingScreen.hide();
+                        //   loadingScreen.hide();
 
                         if (!mounted) return;
 
@@ -904,9 +904,9 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                           }
                         } else {
                           resetTransformation();
-                          var loadingScreen = showLoadingScreen(context);
+                          //var loadingScreen = showLoadingScreen(context);
                           var mergedImage = await getMergedImage();
-                          loadingScreen.hide();
+                          //loadingScreen.hide();
 
                           if (!mounted) return;
 
@@ -1203,9 +1203,9 @@ class _SingleImageEditorState extends State<SingleImageEditor> {
                         //   }
                         // }
 
-                        var loadingScreen = showLoadingScreen(context);
+                        //var loadingScreen = showLoadingScreen(context);
                         var mergedImage = await getMergedImage();
-                        loadingScreen.hide();
+                        //loadingScreen.hide();
 
                         if (!mounted) return;
 
@@ -1624,9 +1624,9 @@ class _ImageFiltersState extends State<ImageFilters> {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               icon: const Icon(Icons.check),
               onPressed: () async {
-                var loadingScreen = showLoadingScreen(context);
+                //var loadingScreen = showLoadingScreen(context);
                 var data = await screenshotController.capture();
-                loadingScreen.hide();
+                //loadingScreen.hide();
 
                 if (mounted) Navigator.pop(context, data);
               },
@@ -1972,9 +1972,9 @@ class _ImageEditorDrawingState extends State<ImageEditorDrawing> {
                   return Navigator.pop(context, data!.buffer.asUint8List());
                 }
 
-                var loadingScreen = showLoadingScreen(context);
+                //var loadingScreen = showLoadingScreen(context);
                 var image = await screenshotController.capture();
-                loadingScreen.hide();
+                //loadingScreen.hide();
 
                 if (!mounted) return;
 
